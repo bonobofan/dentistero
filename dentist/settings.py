@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'dentist.middleware.VisitorsCountMiddleware',
+    'dentist.middleware.VisitorCountMiddleware',
 ]
 
 ROOT_URLCONF = 'dentist.urls'

@@ -1,5 +1,5 @@
 from django.utils.deprecation import MiddlewareMixin
-from dentist.website.models import VisitorsCount
+from website.models import VisitorsCount
 
 class VisitorCountMiddleware(MiddlewareMixin):
     def process_request(self, request):
