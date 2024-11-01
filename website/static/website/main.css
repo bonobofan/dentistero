@@ -82,3 +82,17 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
+
+@keyframes sparkle {
+0% { color: #ff0000; }
+25% { color: #00ff00; }
+50% { color: #0000ff; }
+75% { color: #ffff00; }
+100% { color: #ff0000; }
+}
+
+.sparkling-text {
+animation: sparkle 1s infinite;
+animation-duration: 10s;
+animation-iteration-count: 10;
+}

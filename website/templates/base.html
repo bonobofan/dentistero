@@ -28,12 +28,25 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarToggle">
 				<div class="navbar-nav mr-auto">
+					{% if user.is_authenticated %}
 					<a class="nav-item nav-link" href="{% url 'website-home' %}">Home</a>
 					<a class="nav-item nav-link" href="{% url 'website-about' %}">About</a>
+					<a class="nav-item nav-link sparkling-text" href="{% url 'website-private' %}" style="collo">Hidden Link</a>
+					{% else %}
+					<a class="nav-item nav-link" href="{% url 'website-home' %}">Home</a>
+					<a class="nav-item nav-link" href="{% url 'website-about' %}">About</a>
+					{% endif %}
+
 				</div>
 				<!-- Navbar Right Side -->
 				<div class="navbar-nav">
-					<a class="nav-item nav-link" href="#">Login</a>
+					{% if user.is_authenticated %}
+					<a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+<!--					<!--<a class="nav-item nav-link" href="{/}">Register</a>&ndash;&gt;-->
+					{% else %}
+					<a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+
+					{% endif %}
 
 				</div>
 			</div>
@@ -43,6 +56,13 @@
 <main role="main" class="container">
 	<div class="row">
 		<div class="col-md-8">
+			{% if messages %}
+				{% for message in messages %}
+					<div class="alert alert-{{ message.tags }}">
+						{{ message }}
+					</div>
+				{% endfor %}
+			{% endif %}
 			{% block content %}{% endblock %}
 		</div>
 		<div class="col-md-4">

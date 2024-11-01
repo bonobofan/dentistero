@@ -27,14 +27,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fuet_kmze1*3d@t(-6ni(@0c2of)z)$6^wu(3yrcp%!^5#u1=l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
 # Application definition
 
 INSTALLED_APPS = [
+    'users.apps.UsersConfig',
     'website.apps.WebsiteConfig',
+    'crispy_forms',
+    'crispy_bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,11 +128,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
 STATICFILES_DIR = [
     os.path.join(BASE_DIR, 'static')
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+#LOGIN_REDIRECT_URL = 'website-home'
+
+#LOGOUT_REDIRECT_URL = '/'
 
 # SECURE_SSL_REDIRECT = True
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
