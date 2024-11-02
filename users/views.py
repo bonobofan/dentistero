@@ -18,7 +18,7 @@ def register(request):
 
 
 def login_view(request):
-    print('test')
+
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -26,11 +26,12 @@ def login_view(request):
         if user is not None:
             login(request, user)
             messages.success(request, f'You are now logged in!')
-            return redirect('website-home') # Replace 'home' with the name of your home page URL
+            return redirect('website-home')
         else:
-            return render(request, 'users/login.html', {'error': 'Invalid credentials.'})
+            messages.info(request, f'Login failed!')
+            return redirect('login')
     else:
-        return render(request, 'users/login.html')
+        return render(request, 'users/login.html',{'title': '💪 Mopssport Login 👯‍♂'})
 
 
 def logout_view(request):
