@@ -95,6 +95,50 @@ function farbeAendern() {
 //});
 //});
 
+//document.addEventListener('DOMContentLoaded', () => {
+//const container = document.getElementById('webgl-container');
+//const scene = new THREE.Scene();
+//const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+//const renderer = new THREE.WebGLRenderer();
+//renderer.setSize(container.clientWidth, container.clientHeight);
+//container.appendChild(renderer.domElement);
+//
+//// Erstelle den Würfel
+//const geometry = new THREE.BoxGeometry();
+//const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+//const cube = new THREE.Mesh(geometry, material);
+//scene.add(cube);
+//
+//// Erstelle die Kanten des Würfels
+//const edges = new THREE.EdgesGeometry(geometry);
+//const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 });
+//const lineSegments = new THREE.LineSegments(edges, lineMaterial);
+//scene.add(lineSegments);
+//
+//camera.position.z = 5;
+//
+//function animate() {
+//requestAnimationFrame(animate);
+//cube.rotation.x += 0.01;
+//cube.rotation.y += 0.01;
+//lineSegments.rotation.x += 0.01;
+//lineSegments.rotation.y += 0.01;
+//renderer.render(scene, camera);
+//}
+//animate();
+//
+//// Fenstergröße anpassen
+//window.addEventListener('resize', () => {
+//const width = container.clientWidth;
+//const height = container.clientHeight;
+//renderer.setSize(width, height);
+//camera.aspect = width / height;
+//camera.updateProjectionMatrix();
+//});
+//});
+
+let cube, lineSegments;
+
 document.addEventListener('DOMContentLoaded', () => {
 const container = document.getElementById('webgl-container');
 const scene = new THREE.Scene();
@@ -106,13 +150,13 @@ container.appendChild(renderer.domElement);
 // Erstelle den Würfel
 const geometry = new THREE.BoxGeometry();
 const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
+cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
 // Erstelle die Kanten des Würfels
 const edges = new THREE.EdgesGeometry(geometry);
 const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 });
-const lineSegments = new THREE.LineSegments(edges, lineMaterial);
+lineSegments = new THREE.LineSegments(edges, lineMaterial);
 scene.add(lineSegments);
 
 camera.position.z = 5;
@@ -136,3 +180,8 @@ camera.aspect = width / height;
 camera.updateProjectionMatrix();
 });
 });
+
+function changeCubeColor() {
+const newColor = Math.random() * 0xffffff; // Zufällige Farbe
+cube.material.color.setHex(newColor);
+}
