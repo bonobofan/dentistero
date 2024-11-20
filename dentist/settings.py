@@ -29,9 +29,9 @@ SECRET_KEY = 'django-insecure-fuet_kmze1*3d@t(-6ni(@0c2of)z)$6^wu(3yrcp%!^5#u1=l
 # SECURITY WARNING: don't run with debug turned on in production!
 
 #Live
-# DEBUG = False
+DEBUG = False
 # Debug
-DEBUG = True
+# DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -87,17 +87,17 @@ WSGI_APPLICATION = 'dentist.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 # Für Debug
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Für Produktion
-# DATABASES = {
-#     'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
-# }
+DATABASES = {
+    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
