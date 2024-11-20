@@ -1,21 +1,2 @@
-{% extends "base.html" %}
 
-{% block content %}
-<!--<h2>Are you sure you want to logout?</h2>-->
-<!--<div class="border-top pt-3">-->
-<!--	<small class="text-muted">-->
-<!--		<form method="post" action="{% url 'logout' %}">-->
-<!--			{% csrf_token %}-->
-<!--			<button type="submit" class="btn btn-link">Logout</button>-->
-<!--		</form>-->
-<!--		<a class="ml-2" href="{% url 'login' %}">Login Again</a>-->
-<!--	</small>-->
-<!--</div>-->
-<h1>Logout</h1>
-<p>Are you sure you want to logout?</p>
-<form method="post" action="{% url 'logout' %}">
-	{% csrf_token %}
-	<input type="submit" value="Logout">
-</form>
-{% endblock %}
 

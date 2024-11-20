@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from .models import VisitorsCount
 from django.contrib.auth.decorators import login_required
+
+
+
+
 def about(request):
     return render(request, 'website/about.html',
                   {'title': '💪 Mopssport About 👯‍♂'})
@@ -14,3 +18,13 @@ def home(request):
 def private(request):
     return render(request, 'website/private.html',
                   {'title': '💪 Mopssport Private Room 👯‍♂'})
+
+
+
+# def pygame_test(request):
+#     return render(request, 'website/pygame_site.html')
+#
+#
+# def game_view(request):
+#
+#     return render(request, 'website/pygame_site.html')
